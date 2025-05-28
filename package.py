@@ -25,7 +25,7 @@ variants = [
 
 def commands():
     env.REZ_JWT_CPP_ROOT = '{root}'
-    env.PKG_CONFIG_PATH.append("{root}/cmake")
+    env.CMAKE_PREFIX_PATH.append('{root}/cmake')
     env.JWT_CPP_INCLUDE_DIR = "{root}/include"
 
 uuid = 'repository.jwt-cpp'
