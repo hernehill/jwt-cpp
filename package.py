@@ -15,6 +15,7 @@ with scope('config') as c:
 
 requires = [
     "json",
+    "openssl",
 ]
 
 private_build_requires = [
