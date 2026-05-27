@@ -73,6 +73,12 @@ if(NOT JWT_DISABLE_PICOJSON AND JWT_EXTERNAL_PICOJSON)
   find_package(picojson 1.3.0 REQUIRED)
 endif()
 
+# Auto-detect nlohmann-json from Rez json package if available
+if(DEFINED ENV{nlohmann_json_DIR})
+  set(JWT_EXTERNAL_NLOHMANN_JSON ON CACHE BOOL "Use external nlohmann-json from Rez" FORCE)
+  message(STATUS "jwt-cpp: detected nlohmann_json from Rez at $ENV{nlohmann_json_DIR}")
+endif()
+
 if(JWT_BUILD_EXAMPLES OR JWT_BUILD_TESTS)
   if(JWT_EXTERNAL_NLOHMANN_JSON)
     message(STATUS "jwt-cpp: using find_package for nlohmann-json required for tests")
